@@ -1,6 +1,7 @@
 import {ScrollView, View} from 'react-native';
 import React, {useState} from 'react';
 import {Image} from 'react-native-image-crop-picker';
+import {useDispatch} from 'react-redux';
 import {
   AvoidingKeyboardView,
   CustomButton,
@@ -10,29 +11,71 @@ import {
 } from '@Shared/common';
 import {statusListItems} from '@Shared/assets/data';
 import {PhotoPicker} from '@Shared/components';
-import {styles} from './styles';
 import {pickImage} from '@Shared/utils';
+import {styles} from './styles';
+import {createPost, editPost} from '@Store/services/posts/reducer';
+import {Post, SelectItem, StatusEnum} from '@Shared/types';
+import {AppNavigationType, AppParams, AppParamsList} from '@Navigation/type';
+import {RouteProp} from '@react-navigation/native';
 
-interface Props {}
+interface Props {
+  route: RouteProp<AppParamsList, AppParams.PostTask>;
+  navigation: AppNavigationType;
+}
 
-export const PostTask: React.FC<Props> = () => {
-  const [selectStatus, setSelectStatus] = useState<any>();
+export const PostTask: React.FC<Props> = ({navigation, route}) => {
+  const editedPost = route.params?.post;
 
-  const [title, setTitle] = useState('');
+  const editStatus =
+    editedPost?.status === StatusEnum.IsDrafted
+      ? statusListItems[0]
+      : statusListItems[1];
 
-  const [description, setDescription] = useState('');
+  const [selectStatus, setSelectStatus] = useState<SelectItem | undefined>(
+    editStatus || undefined,
+  );
 
-  const [image, setImage] = useState<Image | undefined>(undefined);
+  const [title, setTitle] = useState('' || editedPost?.title);
+
+  const [description, setDescription] = useState('' || editedPost?.desc);
+
+  const [image, setImage] = useState<string>(
+    undefined || editedPost?.image || '',
+  );
+
+  const isDisabled = !title || !image || !description || !selectStatus;
+
+  const dispatch = useDispatch();
 
   const onPickImage = async () => {
     const value = await pickImage();
-    console.log(value);
-    value && setImage(value);
+    value && setImage(value.path);
   };
 
-  const onRemoveImage = () => setImage(undefined);
+  const onRemoveImage = () => setImage('');
 
-  const onPressSubmit = () => {};
+  const onPressSubmit = () => {
+    if (!isDisabled) {
+      const post = {
+        title,
+        desc: description,
+        image: image,
+        status: selectStatus.value,
+      };
+
+      editedPost
+        ? dispatch(
+            editPost({
+              ...post,
+              id: editedPost.id,
+              createdAt: editedPost.createdAt,
+            }),
+          )
+        : dispatch(createPost(post));
+
+      navigation.navigate(AppParams.Home);
+    }
+  };
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -60,14 +103,18 @@ export const PostTask: React.FC<Props> = () => {
           <View style={styles.inputsContainer}>
             <CustomText fontType="title">Photo</CustomText>
             <PhotoPicker
-              uri={image?.path}
+              uri={image}
               onPickImage={onPickImage}
               onRemoveImage={onRemoveImage}
             />
           </View>
 
           <View style={styles.buttonContainer}>
-            <CustomButton title="Submit" onPress={onPressSubmit} />
+            <CustomButton
+              title="Submit"
+              onPress={onPressSubmit}
+              isDisabled={isDisabled}
+            />
           </View>
         </>
       </AvoidingKeyboardView>

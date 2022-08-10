@@ -1,17 +1,23 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+} from 'react-native';
 import React from 'react';
 import {styles} from './styles';
 import {Post as PostType, StatusEnum} from '@Shared/types';
 import {CustomBadge, CustomText} from '@Shared/common';
 
-interface Props {
+interface Props extends TouchableOpacityProps {
   item: PostType;
 }
 
-export const Post: React.FC<Props> = ({item}) => {
+export const Post: React.FC<Props> = ({item, ...otherProps}) => {
   const {createdAt, title, desc, image, status} = item;
   return (
-    <TouchableOpacity style={styles.post}>
+    <TouchableOpacity style={styles.post} {...otherProps}>
       <View style={styles.container}>
         <Image source={{uri: image}} style={styles.image} resizeMode="cover" />
         <View>

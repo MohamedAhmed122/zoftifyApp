@@ -14,11 +14,18 @@ interface Props {
 
 export const HomeScreen: React.FC<Props> = ({navigation}) => {
   const {posts} = useSelector((state: RootState) => state.post);
+
   const onNavigateToCreateNewPost = () =>
     navigation.navigate(AppParams.PostTask);
 
+  const onNavigateToPostDetail = (id: string) =>
+    navigation.navigate(AppParams.PostDetail, {id});
+
   const renderPost: ListRenderItem<PostType> = props => (
-    <Post item={props.item} />
+    <Post
+      item={props.item}
+      onPress={() => onNavigateToPostDetail(props.item.id)}
+    />
   );
 
   return (

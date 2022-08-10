@@ -12,4 +12,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: 'center',
   },
+  buttonDisabled:{
+    backgroundColor: COLORS.textSecondary
+  }
 });

@@ -32,8 +32,8 @@ export const postSlice = createSlice({
         {...payload, createdAt, id: createdAt.toString()},
       ];
     },
-    editPost: (state: PostState, {payload}: PayloadAction<{post: Post}>) => {
-      state.posts = editPostAction(state.posts, payload.post);
+    editPost: (state: PostState, {payload}: PayloadAction<Post>) => {
+      state.posts = editPostAction(state.posts, payload);
     },
   },
 });
