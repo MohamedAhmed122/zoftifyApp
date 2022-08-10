@@ -14,6 +14,7 @@ export interface Post {
   image: string;
 }
 
+export interface CreatePost extends Omit<Post, 'createdAt'| 'id'>{}
 export interface SelectItem {
   value: StatusType;
   label: string;
