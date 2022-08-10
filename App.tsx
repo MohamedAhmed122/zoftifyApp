@@ -1,15 +1,7 @@
-import {StyleSheet, Text, View} from 'react-native';
-import compose from 'use-compose';
 import React from 'react';
+import {withProviders} from './src/shared/providers';
+import {AppNavigation} from './src/navigation';
 
-export const App = () => {
-  console.log('A7a');
+const App = () => <AppNavigation />;
 
-  return (
-    <View>
-      <Text>App</Text>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({});
+export default withProviders(App);

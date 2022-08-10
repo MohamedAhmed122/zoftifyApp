@@ -7,6 +7,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:react-hooks/recommended',
+    'prettier',
     '@react-native-community',
   ],
   parser: '@typescript-eslint/parser',
