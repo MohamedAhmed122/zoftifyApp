@@ -6,6 +6,7 @@ export const COLORS = {
   danger: '#D91616',
   lightRed: 'rgba(217, 22, 22, 0.1)',
   green: '#10C137',
-  lightGreen: 'rgba(16, 193, 55, 0.1)'
+  lightGreen: 'rgba(16, 193, 55, 0.1)',
+  gray:'#F8F8F8'
 
 };

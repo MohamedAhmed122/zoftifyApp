@@ -2,7 +2,13 @@ import {StyleProp, Text, TextProps, TextStyle} from 'react-native';
 import React from 'react';
 import {styles} from './styles';
 
-type FontType = 'body' | 'title' | 'caption' | 'subtitle';
+type FontType =
+  | 'body'
+  | 'title'
+  | 'caption'
+  | 'subtitle'
+  | 'buttonText'
+  | 'badgeText';
 
 interface Props extends Omit<TextProps, 'style'> {
   textStyle?: StyleProp<TextStyle>;
@@ -22,6 +28,8 @@ export const CustomText: React.FC<Props> = ({
         fontType === 'title' && styles.title,
         fontType === 'caption' && styles.caption,
         fontType === 'subtitle' && styles.subtitle,
+        fontType === 'badgeText' && styles.badgeText,
+        fontType === 'buttonText' && styles.buttonText,
         textStyle,
       ]}
       {...otherProps}

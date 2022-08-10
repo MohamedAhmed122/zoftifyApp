@@ -1,7 +1,8 @@
-import {Button, Text, View} from 'react-native';
+import {Button, View} from 'react-native';
 import React from 'react';
 import {AppNavigationType, AppParams} from '@Navigation/type';
-import {CustomText} from '@Shared/common/CustomText';
+import {CustomBadge, CustomInput, CustomText} from '@Shared/common';
+import {CustomButton} from '@Shared/common/CustomButton';
 
 interface Props {
   navigation: AppNavigationType;
@@ -11,12 +12,13 @@ export const HomeScreen: React.FC<Props> = ({navigation}) => {
   return (
     <View>
       <CustomText fontType="title">Mohamed Ahmed </CustomText>
-
-      <View style={{marginTop: 100}}></View>
       <Button
         onPress={() => navigation.navigate(AppParams.CreatePost)}
         title="navigate"
       />
+      <CustomInput value="name" />
+      <CustomButton title="name" />
+      <CustomBadge title="Published" badgeType="isPublished" />
     </View>
   );
 };

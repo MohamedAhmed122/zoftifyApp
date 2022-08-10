@@ -27,5 +27,16 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 20,
         color: COLORS.textSecondary
+    },
+    buttonText:{
+        fontWeight: '600',
+        fontSize: 16,
+        lineHeight: 20,
+        color: COLORS.white
+    },
+    badgeText:{
+        fontWeight: '500',
+        fontSize: 14,
+        lineHeight: 16,
     }
 })
