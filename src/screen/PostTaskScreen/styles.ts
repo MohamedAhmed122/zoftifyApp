@@ -14,5 +14,10 @@ export const styles = StyleSheet.create({
     marginTop: 140,
     marginBottom: 70,
     marginHorizontal: 16,
+  },
+  descInput:{
+    height: 112,
+    alignItems:'flex-start',
+    paddingTop: 10,
   }
 });

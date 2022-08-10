@@ -1,6 +1,5 @@
 import {ScrollView, View} from 'react-native';
 import React, {useState} from 'react';
-import {Image} from 'react-native-image-crop-picker';
 import {useDispatch} from 'react-redux';
 import {
   AvoidingKeyboardView,
@@ -11,12 +10,12 @@ import {
 } from '@Shared/common';
 import {statusListItems} from '@Shared/assets/data';
 import {PhotoPicker} from '@Shared/components';
-import {pickImage} from '@Shared/utils';
-import {styles} from './styles';
+import {getCurrentStatus, pickImage} from '@Shared/utils';
 import {createPost, editPost} from '@Store/services/posts/reducer';
-import {Post, SelectItem, StatusEnum} from '@Shared/types';
+import {SelectItem, StatusEnum} from '@Shared/types';
 import {AppNavigationType, AppParams, AppParamsList} from '@Navigation/type';
 import {RouteProp} from '@react-navigation/native';
+import {styles} from './styles';
 
 interface Props {
   route: RouteProp<AppParamsList, AppParams.PostTask>;
@@ -25,14 +24,10 @@ interface Props {
 
 export const PostTask: React.FC<Props> = ({navigation, route}) => {
   const editedPost = route.params?.post;
-
-  const editStatus =
-    editedPost?.status === StatusEnum.IsDrafted
-      ? statusListItems[0]
-      : statusListItems[1];
+  const dispatch = useDispatch();
 
   const [selectStatus, setSelectStatus] = useState<SelectItem | undefined>(
-    editStatus || undefined,
+    getCurrentStatus(editedPost),
   );
 
   const [title, setTitle] = useState('' || editedPost?.title);
@@ -44,8 +39,6 @@ export const PostTask: React.FC<Props> = ({navigation, route}) => {
   );
 
   const isDisabled = !title || !image || !description || !selectStatus;
-
-  const dispatch = useDispatch();
 
   const onPickImage = async () => {
     const value = await pickImage();
@@ -87,7 +80,6 @@ export const PostTask: React.FC<Props> = ({navigation, route}) => {
               value={title}
               onChangeText={setTitle}
             />
-
             <CustomPicker
               placeholder="Status"
               items={statusListItems}
@@ -98,6 +90,8 @@ export const PostTask: React.FC<Props> = ({navigation, route}) => {
               placeholder="Description"
               value={description}
               onChangeText={setDescription}
+              inputContainerStyle={styles.descInput}
+              multiline
             />
           </View>
           <View style={styles.inputsContainer}>

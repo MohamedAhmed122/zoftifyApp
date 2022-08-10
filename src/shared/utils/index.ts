@@ -1,1 +1,2 @@
-export * from './pickImage'
+export * from './pickImage';
+export * from './status';

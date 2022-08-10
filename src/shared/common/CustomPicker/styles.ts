@@ -41,6 +41,7 @@ const pickerStyle = StyleSheet.create({
   text: {
     flex: 1,
     marginLeft: 10,
+    color:'lightgray'
   },
   modalContainer: {
     marginTop: 30,
