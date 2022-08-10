@@ -8,6 +8,7 @@ export const COLORS = {
   green: '#10C137',
   lightGreen: 'rgba(16, 193, 55, 0.1)',
   gray:'#F8F8F8',
-  grey: '#F1F1F1'
-
+  grey: '#F1F1F1',
+  darkGrey: '#F2F3F3',
 };
+

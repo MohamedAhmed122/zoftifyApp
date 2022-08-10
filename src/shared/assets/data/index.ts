@@ -1,4 +1,6 @@
-import { Post } from "@Shared/types";
+import { StatusEnum } from './../../types/index';
+import { Post, SelectItem } from "@Shared/types";
+import { COLORS } from '@Shared/style';
 
 export const posts: Post[] = [
   {
@@ -16,5 +18,23 @@ export const posts: Post[] = [
     status: 'isPublished',
     desc: 'Linting is an essential tool that allows developers to keep the coding readability high as well as fix some issues',
     image: 'https://nsoft.co.il/wp-content/uploads/2020/01/1_NXSzsdddddddddeeer.jpeg',
+  },
+];
+
+
+export const statusListItems: SelectItem[] = [
+  {
+    id: '0',
+    label: 'Draft',
+    value: StatusEnum.IsDrafted,
+    color: COLORS.lightRed,
+    textColor: COLORS.danger
+  },
+  {
+    id: '1',
+    label: 'Published',
+    value: StatusEnum.IsPublished,
+    color: COLORS.lightGreen,
+    textColor: COLORS.green
   },
 ];

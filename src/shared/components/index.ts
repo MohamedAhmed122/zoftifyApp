@@ -1,1 +1,2 @@
-export * from './Post'
+export * from './Post';
+export * from './PhotoPicker';

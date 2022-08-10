@@ -5,7 +5,6 @@ import {CustomButton, Empty} from '@Shared/common';
 import {Post} from '@Shared/components';
 import {posts} from '@Shared/assets/data';
 import {Post as PostType} from '@Shared/types';
-
 import {styles} from './styles';
 
 interface Props {
@@ -14,7 +13,7 @@ interface Props {
 
 export const HomeScreen: React.FC<Props> = ({navigation}) => {
   const onNavigateToCreateNewPost = () =>
-    navigation.navigate(AppParams.CreatePost);
+    navigation.navigate(AppParams.PostTask);
 
   const renderPost: ListRenderItem<PostType> = props => (
     <Post item={props.item} />
