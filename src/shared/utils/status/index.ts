@@ -1,11 +1,11 @@
 import {statusListItems} from '@Shared/assets/data';
-import {Post, StatusEnum} from '@Shared/types';
+import {Post, PostStatus} from '@Shared/types';
 
 export const getCurrentStatus = (post?: Post) => {
   const editStatus =
-    post?.status === StatusEnum.IsDrafted
+    post?.status === PostStatus.IsDrafted
       ? statusListItems[0]
-      : post?.status === StatusEnum.IsPublished
+      : post?.status === PostStatus.IsPublished
       ? statusListItems[0]
       : undefined;
   return editStatus;

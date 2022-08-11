@@ -1,6 +1,6 @@
 export type StatusType = 'isDrafted' | 'isPublished';
 
-export enum StatusEnum {
+export enum PostStatus {
   IsDrafted = 'isDrafted',
   IsPublished = 'isPublished',
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import {withProviders} from './src/shared/providers';
 import {AppNavigation} from './src/navigation';
 
-// TODO: Fix placeholder of CustomPicker
+// FIXME: RootState type
 // TODO: Refactor CustomPicker
 
 const App = () => <AppNavigation />;

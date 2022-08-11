@@ -2,7 +2,7 @@ import {Image, ScrollView, View} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {CustomBadge, CustomButton, CustomText} from '@Shared/common';
-import {Post, StatusEnum} from '@Shared/types';
+import {Post, PostStatus} from '@Shared/types';
 
 import {styles} from './styles';
 import {COLORS} from '@Shared/style';
@@ -42,7 +42,7 @@ export const ViewPostDetail: React.FC<Props> = ({
             <CustomBadge
               badgeType={post.status}
               title={
-                post.status === StatusEnum.IsDrafted ? 'Draft' : 'Published'
+                post.status === PostStatus.IsDrafted ? 'Draft' : 'Published'
               }
             />
           </View>

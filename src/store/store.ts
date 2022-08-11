@@ -1,7 +1,7 @@
 import {persistStore} from 'reduxjs-toolkit-persist';
-
 import {configureStore} from '@reduxjs/toolkit';
-import {persistedReducer, serializableCheck} from './rootReducer';
+import {persistedReducer, rootReducer, serializableCheck} from './rootReducer';
+
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -20,4 +20,5 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState>;
+
+export type RootState = ReturnType<typeof rootReducer>;

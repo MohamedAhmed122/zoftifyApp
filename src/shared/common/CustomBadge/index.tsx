@@ -3,7 +3,7 @@ import React from 'react';
 import {CustomText} from '../CustomText';
 import {styles} from './styles';
 import {COLORS} from '@Shared/style';
-import {StatusEnum, StatusType} from '@Shared/types';
+import {PostStatus, StatusType} from '@Shared/types';
 
 interface CustomBadgeProps extends ViewProps {
   title: string;
@@ -19,10 +19,10 @@ export const CustomBadge: React.FC<CustomBadgeProps> = ({
     <View
       style={[
         styles.badge,
-        badgeType === StatusEnum.IsDrafted && {
+        badgeType === PostStatus.IsDrafted && {
           backgroundColor: COLORS.lightRed,
         },
-        badgeType === StatusEnum.IsPublished && {
+        badgeType === PostStatus.IsPublished && {
           backgroundColor: COLORS.lightGreen,
         },
       ]}
@@ -30,8 +30,8 @@ export const CustomBadge: React.FC<CustomBadgeProps> = ({
       <CustomText
         fontType="badgeText"
         textStyle={[
-          badgeType === StatusEnum.IsDrafted && {color: COLORS.danger},
-          badgeType === StatusEnum.IsPublished && {color: COLORS.green},
+          badgeType === PostStatus.IsDrafted && {color: COLORS.danger},
+          badgeType === PostStatus.IsPublished && {color: COLORS.green},
         ]}>
         {title}
       </CustomText>

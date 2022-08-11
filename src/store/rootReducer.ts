@@ -9,7 +9,6 @@ import {
   REGISTER,
 } from 'reduxjs-toolkit-persist';
 
-
 import {combineReducers} from '@reduxjs/toolkit';
 
 import postSlice from './services/posts/reducer';
@@ -25,7 +24,7 @@ const persistConfig = {
   key: 'RootApp',
   version: 1,
   storage: AsyncStorage,
-
+  whiteList: ['post'],
 };
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

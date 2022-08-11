@@ -1,4 +1,4 @@
-import { StatusEnum } from './../../types/index';
+import { PostStatus } from './../../types/index';
 import { Post, SelectItem } from "@Shared/types";
 import { COLORS } from '@Shared/style';
 
@@ -26,14 +26,14 @@ export const statusListItems: SelectItem[] = [
   {
     id: '0',
     label: 'Draft',
-    value: StatusEnum.IsDrafted,
+    value: PostStatus.IsDrafted,
     color: COLORS.lightRed,
     textColor: COLORS.danger
   },
   {
     id: '1',
     label: 'Published',
-    value: StatusEnum.IsPublished,
+    value: PostStatus.IsPublished,
     color: COLORS.lightGreen,
     textColor: COLORS.green
   },

@@ -36,7 +36,7 @@ export const CustomPicker: React.FC<CustomPickerProps> = ({
         <View style={styles.container}>
           <CustomText
             fontType={selectedItem?.label ? 'body' : 'subtitle'}
-            textStyle={styles.text}>
+            textStyle={[styles.text, !selectedItem?.label && styles.label]}>
             {selectedItem ? selectedItem.label : placeholder}
           </CustomText>
           <Icon name="chevron-down" size={24} color="gray" />
