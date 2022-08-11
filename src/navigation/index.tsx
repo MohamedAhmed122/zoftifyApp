@@ -18,7 +18,13 @@ export const AppNavigation = () => {
           headerTitle: () => <Header />,
         }}
       />
-      <Stack.Screen name={AppParams.PostTask} component={PostTask} />
+      <Stack.Screen
+        name={AppParams.PostTask}
+        component={PostTask}
+        options={{
+          headerBackVisible: false,
+        }}
+      />
       <Stack.Screen
         name={AppParams.PostDetail}
         component={PostDetailScreen}

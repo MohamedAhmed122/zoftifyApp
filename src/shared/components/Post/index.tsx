@@ -23,7 +23,7 @@ export const Post: React.FC<Props> = ({item, ...otherProps}) => {
     <TouchableOpacity style={styles.post} {...otherProps}>
       <View style={styles.container}>
         <Image source={{uri: image}} style={styles.image} resizeMode="cover" />
-        <View>
+        <View style={styles.textContainer}>
           <CustomText
             fontType="title"
             textStyle={[styles.textStyle, styles.title]}>

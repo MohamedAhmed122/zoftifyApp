@@ -1,4 +1,4 @@
-import {FlatList, ListRenderItem} from 'react-native';
+import {FlatList, ListRenderItem, View} from 'react-native';
 import React from 'react';
 import {AppNavigationType, AppParams} from '@Navigation/type';
 import {CustomButton, Empty} from '@Shared/common';
@@ -29,17 +29,21 @@ export const HomeScreen: React.FC<Props> = ({navigation}) => {
   );
 
   return (
-    <FlatList
-      data={posts}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.contentContainerStyle}
-      keyExtractor={item => item.id}
-      ListEmptyComponent={<Empty />}
-      renderItem={renderPost}
-      ListFooterComponentStyle={styles.footer}
-      ListFooterComponent={
+    <>
+      <FlatList
+        data={posts}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.contentContainerStyle}
+        keyExtractor={item => item.id}
+        ListEmptyComponent={<Empty />}
+        renderItem={renderPost}
+        // ListFooterComponentStyle={styles.footer}
+        // ListFooterComponent={
+        // }
+      />
+      <View style={styles.footer}>
         <CustomButton title="New Post" onPress={onNavigateToCreateNewPost} />
-      }
-    />
+      </View>
+    </>
   );
 };

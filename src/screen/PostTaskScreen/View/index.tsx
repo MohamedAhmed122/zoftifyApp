@@ -41,9 +41,11 @@ export const ViewPostTask: React.FC<Props> = ({
   setSelectStatus,
 }) => {
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.screen}>
       <AvoidingKeyboardView>
-        <>
+        <View style={styles.container}>
           <View style={styles.inputsContainer}>
             <CustomInput
               placeholder="Title"
@@ -80,7 +82,7 @@ export const ViewPostTask: React.FC<Props> = ({
               isDisabled={isDisabled}
             />
           </View>
-        </>
+        </View>
       </AvoidingKeyboardView>
     </ScrollView>
   );

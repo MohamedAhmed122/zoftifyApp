@@ -3,6 +3,10 @@ import {StyleSheet, Dimensions} from 'react-native';
 const {width, height} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
+  screen: {
+    flexGrow: 1,
+    paddingBottom: 32,
+  },
   image: {
     flex: 0.5,
     width,
@@ -13,8 +17,7 @@ export const styles = StyleSheet.create({
   },
   conatiner: {
     marginHorizontal: 16,
-    justifyContent:'space-between',
-    height: height / 2.2,
+    justifyContent: 'space-between',
   },
   titleContainer: {
     flexDirection: 'row',
@@ -22,18 +25,19 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 20,
   },
+  title: {
+    flex: 1,
+  },
   delete: {
     backgroundColor: COLORS.danger,
-  
   },
-  editBtn:{
-      backgroundColor: COLORS.green,
-      marginBottom: 40
+  editBtn: {
+    backgroundColor: COLORS.green,
+    // marginBottom: 40,
   },
-  icon:{
-      position:'absolute',
-      right: 16,
-      top: 45,
-  }
-
+  icon: {
+    position: 'absolute',
+    right: 16,
+    top: 45,
+  },
 });

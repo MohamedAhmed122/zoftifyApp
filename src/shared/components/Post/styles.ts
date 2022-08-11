@@ -1,16 +1,21 @@
 import {COLORS} from '@Shared/style';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const {width} = Dimensions.get('window')
 
 export const styles = StyleSheet.create({
   post: {
     backgroundColor: COLORS.white,
-    width: '100%',
+    width,
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 18,
     borderWidth: 1,
     borderColor: COLORS.grey,
     marginTop: 12,
+  },
+  textContainer:{
+    flex:1
   },
   container: {
     flexDirection: 'row',

@@ -21,7 +21,7 @@ export const ViewPostDetail: React.FC<Props> = ({
   onNavigateToEditPost,
 }) => {
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.screen}>
       <Image
         source={{uri: post.image}}
         resizeMode="cover"
@@ -38,7 +38,9 @@ export const ViewPostDetail: React.FC<Props> = ({
       <View style={styles.conatiner}>
         <View>
           <View style={styles.titleContainer}>
-            <CustomText fontType="title">{post.title}</CustomText>
+            <View style={styles.title}>
+              <CustomText fontType="title">{post.title}</CustomText>
+            </View>
             <CustomBadge
               badgeType={post.status}
               title={

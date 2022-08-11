@@ -2,6 +2,14 @@ import {COLORS} from '@Shared/style';
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  screen:{
+    flexGrow:1,
+    paddingBottom: 40,
+  },
+  container:{
+    justifyContent: 'space-between',
+    flex:1
+  },
   inputsContainer: {
     backgroundColor: COLORS.white,
     paddingVertical: 20,
@@ -11,8 +19,7 @@ export const styles = StyleSheet.create({
     borderColor: COLORS.gray,
   },
   buttonContainer:{
-    marginTop: 140,
-    marginBottom: 70,
+    // marginBottom: 70,
     marginHorizontal: 16,
   },
   descInput:{
